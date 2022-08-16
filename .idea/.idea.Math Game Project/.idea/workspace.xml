@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1083fd1-59a2-40d6-a8dc-e4fd0bf9fec6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Math Game Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Math Game Project/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/prefabs/Keyboard/Key Button (1).prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/Keyboard/Key Button (1).prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/RiderScriptEditorPersistedState.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +21,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1660593122021</updated>
-      <workItem from="1660593141542" duration="1193000" />
+      <workItem from="1660593141542" duration="1499000" />
     </task>
     <servers />
   </component>
