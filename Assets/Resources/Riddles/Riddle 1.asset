@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7dc35ebc8bf15bf41b31f3b964d7713e, type: 3}
-  m_Name: Riddle 2
+  m_Script: {fileID: 11500000, guid: 1b0b2b5382c3b3a4ba2c4df5b1258ea4, type: 3}
+  m_Name: Riddle 1
   m_EditorClassIdentifier: 
-  riddleSprite: {fileID: 1927812863, guid: 6aa4f410475d26d40a7776c82db37013, type: 3}
-  correctAnswere: 12
+  riddleSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  correctAnswere: 1
   soloutions:
   - 
   - 
