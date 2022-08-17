@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dc35ebc8bf15bf41b31f3b964d7713e, type: 3}
+  m_Name: Riddle 4
+  m_EditorClassIdentifier: 
+  riddleSprite: {fileID: -250623248, guid: 6aa4f410475d26d40a7776c82db37013, type: 3}
+  correctAnswere: 15
+  soloutions:
+  - 
+  - 
+  - 
