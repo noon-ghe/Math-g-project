@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1544146676030718630}
   - component: {fileID: 2133195704817073130}
   - component: {fileID: -4674425862829983795}
+  - component: {fileID: 3352532007040001882}
   m_Layer: 5
   m_Name: Riddle
   m_TagString: Untagged
@@ -76,3 +77,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3352532007040001882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2725247384184139770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47bf1fc1794e8074091ba3d2f56711ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  riddleImage: {fileID: -4674425862829983795}
+  reactToAnswerTex: {fileID: 0}
+  inputField: {fileID: 0}
