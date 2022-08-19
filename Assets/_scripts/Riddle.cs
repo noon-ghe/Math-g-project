@@ -111,7 +111,7 @@ public class Riddle : MonoBehaviour
         if (inputField.text != "")
             if (inputField.text == riddle[_selectedLevelIndex].GetAnswere())
             {
-                if (_userData.LastUnlockedLevel <= _selectedLevelIndex)
+                if (_userData.LastUnlockedLevel == _selectedLevelIndex)
                 {
                     _userData.LastUnlockedLevel += 1;
                     _userData._isEmpty = false;

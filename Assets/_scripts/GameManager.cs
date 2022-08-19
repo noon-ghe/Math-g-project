@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
     private void HandelLevels(GameStates newState)
     {
         _history.Add(newState);
+        _userData = LoadGame(_userData);
         print(newState + " added to history");
         //TODO Scroll near last unlocked level
     }
@@ -109,7 +110,9 @@ public class GameManager : MonoBehaviour
     {
         print(_history[_history.Count - 1] + " removed");
         _history.Remove(_history[_history.Count - 1]);
-        StartCoroutine(UpdateCanvases(_history[_history.Count - 1]));
+        
+        //StartCoroutine(UpdateCanvases(_history[_history.Count - 1]));
+        UpdateGameState(_history[_history.Count - 1]);
     }
 
     IEnumerator UpdateCanvases(GameStates newState)
@@ -178,7 +181,7 @@ public class UserData
     public UserData()
     {
         _isEmpty = false;
-        LastUnlockedLevel = 2;
+        LastUnlockedLevel = 0;
         SelectedTheme = 0;
         Volume = 100;
         SoundOnOrOff = true;
