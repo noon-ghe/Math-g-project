@@ -4694,9 +4694,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6461741905226745765, guid: 3896aa1b60dfaa54da1d23014d26f180, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -29326555, guid: 11ebb08c1fbfc84439644030361ad8fc, type: 3}
     - target: {fileID: 7869091912554374273, guid: 3896aa1b60dfaa54da1d23014d26f180, type: 3}
       propertyPath: m_Name
-      value: Menu Button (3)
+      value: Setting
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3896aa1b60dfaa54da1d23014d26f180, type: 3}
@@ -14154,6 +14158,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6461741905226745765, guid: 3896aa1b60dfaa54da1d23014d26f180, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -354172615, guid: 11ebb08c1fbfc84439644030361ad8fc, type: 3}
     - target: {fileID: 7869091912554374273, guid: 3896aa1b60dfaa54da1d23014d26f180, type: 3}
       propertyPath: m_Name
       value: levels
