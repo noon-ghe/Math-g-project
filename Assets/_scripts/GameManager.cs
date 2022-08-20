@@ -8,6 +8,7 @@ using System.IO;
 public enum GameStates
 {
     Home,
+    Setting,
     Levels,
     Game,
     Win,
@@ -15,7 +16,7 @@ public enum GameStates
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject HomeCanvas, GameCanvas, LevelsCanvas, WinCanvas;
+    [SerializeField] GameObject HomeCanvas,SettingCanvas,GameCanvas, LevelsCanvas, WinCanvas;
     static GameManager _i; //  _i ←→ _instance 
     private List<GameStates> _history = new List<GameStates>();
     private static string path;
@@ -78,6 +79,9 @@ public class GameManager : MonoBehaviour
             case GameStates.Levels:
                 HandelLevels(newState);
                 break;
+            case GameStates.Setting:
+                HandelSetting(newState);
+                break;
             case GameStates.Game:
                 HandleGame(newState);
                 break;
@@ -109,6 +113,12 @@ public class GameManager : MonoBehaviour
         print(newState + " added to history");
         //TODO Scroll near last unlocked level
     }
+    private void HandelSetting(GameStates newState)
+    {
+        _history.Add(newState);
+        _userData = LoadGame(_userData);
+        print(newState + " added to history");
+    }
 
     public void Back()
     {
@@ -132,6 +142,7 @@ public class GameManager : MonoBehaviour
             HandelLevels(newState);
 
         HomeCanvas.SetActive(newState == GameStates.Home);
+        SettingCanvas.SetActive(newState == GameStates.Setting);
         LevelsCanvas.SetActive(newState == GameStates.Levels);
         GameCanvas.SetActive(newState == GameStates.Game);
         WinCanvas.SetActive(newState == GameStates.Win);
