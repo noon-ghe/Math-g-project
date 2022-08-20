@@ -64,6 +64,12 @@ public class GameManager : MonoBehaviour
 
     public void UpdateGameState(GameStates newState)
     {
+        DoStateHandlesSwitches(newState);
+        StartCoroutine(UpdateCanvases(newState));
+    }
+
+    void DoStateHandlesSwitches(GameStates newState)
+    {
         switch (newState)
         {
             case GameStates.Home:
@@ -79,8 +85,6 @@ public class GameManager : MonoBehaviour
                 HandleWin(newState);
                 break;
         }
-
-        StartCoroutine(UpdateCanvases(newState));
     }
 
     private void HandleWin(GameStates newState)
@@ -110,9 +114,7 @@ public class GameManager : MonoBehaviour
     {
         print(_history[_history.Count - 1] + " removed");
         _history.Remove(_history[_history.Count - 1]);
-        
-        //StartCoroutine(UpdateCanvases(_history[_history.Count - 1]));
-        UpdateGameState(_history[_history.Count - 1]);
+        StartCoroutine(UpdateCanvases(_history[_history.Count - 1]));
     }
 
     IEnumerator UpdateCanvases(GameStates newState)
@@ -126,6 +128,9 @@ public class GameManager : MonoBehaviour
 
     private void EnableCanvases(GameStates newState)
     {
+        if (newState == GameStates.Levels)
+            HandelLevels(newState);
+
         HomeCanvas.SetActive(newState == GameStates.Home);
         LevelsCanvas.SetActive(newState == GameStates.Levels);
         GameCanvas.SetActive(newState == GameStates.Game);
