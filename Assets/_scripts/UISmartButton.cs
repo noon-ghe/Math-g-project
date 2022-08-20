@@ -17,7 +17,8 @@ enum ButtonState
     StartGame,
     SelectLevel,
 
-    DisplayLevels
+    DisplayLevels,
+    Setting
     //...
 }
 
@@ -71,6 +72,9 @@ public class UISmartButton : MonoBehaviour
                 break;
             case ButtonState.DisplayLevels:
                 GameManager.I.UpdateGameState(GameStates.Levels);
+                break;
+            case ButtonState.Setting:
+                GameManager.I.UpdateGameState(GameStates.Setting);
                 break;
             case ButtonState.SelectLevel:
                 GameManager.I.UpdateGameState(GameStates.Game);
