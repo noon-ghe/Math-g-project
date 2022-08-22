@@ -113,11 +113,15 @@ public class Riddle : MonoBehaviour
             {
                 if (_userData.LastUnlockedLevel == _selectedLevelIndex)
                 {
-                    _userData.LastUnlockedLevel += 1;
+                    if (_userData.LastUnlockedLevel < riddle.Length)
+                    {
+                        _userData.LastUnlockedLevel += 1;
+                    }
+
                     _userData._isEmpty = false;
                     GameManager.I.SaveGame(_userData);
                 }
-                
+
                 StartCoroutine(NextLevel());
                 ClearInputField();
             }
