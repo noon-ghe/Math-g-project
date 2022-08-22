@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1083fd1-59a2-40d6-a8dc-e4fd0bf9fec6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Math Game Project/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Math Game Project/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites 1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites 1/Asset 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites 1/Asset 1.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites 1/Icons.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites 1/Icons.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites 1/LOGO.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites 1/LOGO.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites 1/Riddles.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Sprites 1/Riddles.png.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/UISmartButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/UISmartButton.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Sections in ui/Midde.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/Sections in ui/Midde.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/prefabs/Sections in ui/Top.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/prefabs/Sections in ui/Top.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Riddle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Riddle.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

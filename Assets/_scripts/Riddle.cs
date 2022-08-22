@@ -109,11 +109,12 @@ public class Riddle : MonoBehaviour
     public IEnumerator CheckingAnswer()
     {
         if (inputField.text != "")
+        {
             if (inputField.text == riddle[_selectedLevelIndex].GetAnswere())
             {
                 if (_userData.LastUnlockedLevel == _selectedLevelIndex)
                 {
-                    if (_userData.LastUnlockedLevel < riddle.Length)
+                    if (_userData.LastUnlockedLevel + 1 < riddle.Length)
                     {
                         _userData.LastUnlockedLevel += 1;
                     }
@@ -123,15 +124,16 @@ public class Riddle : MonoBehaviour
                 }
 
                 StartCoroutine(NextLevel());
-                ClearInputField();
             }
             else
             {
                 reactToAnswerTex.text = "Think more ...!";
-                ClearInputField();
                 yield return new WaitForSeconds(0.7f);
                 reactToAnswerTex.text = "";
             }
+            ClearInputField();
+        }
+            
     }
 
     private IEnumerator NextLevel()
