@@ -16,9 +16,14 @@ enum ButtonState
     Back,
     StartGame,
     SelectLevel,
-
+    Setting,
     DisplayLevels,
-    Setting
+    
+    Share,
+    Home,
+    Exit,
+    None
+    
     //...
 }
 
@@ -52,6 +57,9 @@ public class UISmartButton : MonoBehaviour
     {
         switch (state)
         {
+            case ButtonState.None:
+                print("none option");
+                break;
             case ButtonState.KeyboardNumber:
                 Riddle.I.UpdateUserAnswer(GetComponentInChildren<TextMeshProUGUI>().text);
                 break;
@@ -75,6 +83,16 @@ public class UISmartButton : MonoBehaviour
                 break;
             case ButtonState.Setting:
                 GameManager.I.UpdateGameState(GameStates.Setting);
+                break;
+            case ButtonState.Share:
+                Debug.Log("sharing");
+                break;
+            case ButtonState.Home:
+                GameManager.I.UpdateGameState(GameStates.Home);
+                break;
+            case ButtonState.Exit:
+                //Application.Quit();
+                print("Quit");
                 break;
             case ButtonState.SelectLevel:
                 GameManager.I.UpdateGameState(GameStates.Game);

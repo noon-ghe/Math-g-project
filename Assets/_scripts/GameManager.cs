@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameStates.Home:
-
+                HandelHome(newState);
                 break;
             case GameStates.Levels:
                 HandelLevels(newState);
@@ -89,6 +89,12 @@ public class GameManager : MonoBehaviour
                 HandleWin(newState);
                 break;
         }
+    }
+
+    private void HandelHome(GameStates newState)
+    {
+        print("History deleted!");
+        _history.Clear();
     }
 
     private void HandleWin(GameStates newState)
