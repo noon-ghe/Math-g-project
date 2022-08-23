@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e1083fd1-59a2-40d6-a8dc-e4fd0bf9fec6" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_scripts/Riddle.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/Riddle.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_scripts/UISmartButton.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_scripts/UISmartButton.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
