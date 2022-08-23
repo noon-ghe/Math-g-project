@@ -65,16 +65,14 @@ public class UISmartButton : MonoBehaviour
                     : SoundManager.I.WrongAnswerSound;
                 SoundManager.I.PlayClickSound(audioClipToPlay);
                 break;
-            case ButtonState.Back:
-                audioClipToPlay = SoundManager.I.BackButtonSound;
-                SoundManager.I.PlayClickSound(audioClipToPlay);
-                GameManager.I.Back();
-                break;
             default:
                 audioClipToPlay = SoundManager.I.NormalClickSound;
                 SoundManager.I.PlayClickSound(audioClipToPlay);
                 switch (state)
                 {
+                    case ButtonState.Back:
+                        GameManager.I.Back();
+                        break;
                     case ButtonState.None:
                         print("none option");
                         break;

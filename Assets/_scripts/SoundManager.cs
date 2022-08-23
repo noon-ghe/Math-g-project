@@ -9,7 +9,6 @@ public class SoundManager : MonoBehaviour
     [SerializeField]private AudioClip normalClickSound;
     [SerializeField]private AudioClip wrongAnswerSound;
     [SerializeField]private AudioClip correctAnswerSound;
-    [SerializeField]private AudioClip backButtonSound;
 
     
     public AudioClip NormalClickSound
@@ -23,10 +22,6 @@ public class SoundManager : MonoBehaviour
     public AudioClip CorrectAnswerSound
     {
         get { return correctAnswerSound; }
-    }
-    public AudioClip BackButtonSound
-    {
-        get { return backButtonSound; }
     }
     static SoundManager _i; //  _i ←→ _instance 
 
