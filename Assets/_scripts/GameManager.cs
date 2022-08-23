@@ -16,7 +16,7 @@ public enum GameStates
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject HomeCanvas,SettingCanvas,GameCanvas, LevelsCanvas, WinCanvas;
+    [SerializeField] GameObject HomeCanvas, SettingCanvas, GameCanvas, LevelsCanvas, WinCanvas;
     static GameManager _i; //  _i ←→ _instance 
     private List<GameStates> _history = new List<GameStates>();
     private static string path;
@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
         print(newState + " added to history");
         //TODO Scroll near last unlocked level
     }
+
     private void HandelSetting(GameStates newState)
     {
         _history.Add(newState);
@@ -145,7 +146,7 @@ public class GameManager : MonoBehaviour
     private void EnableCanvases(GameStates newState)
     {
         if (newState == GameStates.Levels)
-            HandelLevels(newState);
+            _userData = LoadGame(_userData);
 
         HomeCanvas.SetActive(newState == GameStates.Home);
         SettingCanvas.SetActive(newState == GameStates.Setting);

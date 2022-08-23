@@ -55,6 +55,7 @@ public class UISmartButton : MonoBehaviour
 
     async void MyButtonClicked()
     {
+        SoundManager.I.PlayClickSound();
         switch (state)
         {
             case ButtonState.None:
