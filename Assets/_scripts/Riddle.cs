@@ -16,6 +16,7 @@ public class Riddle : MonoBehaviour
     int _selectedLevelIndex = 0;
     private UserData _userData;
     private string path;
+    bool isAnswerCorrect = false;
 
     static Riddle _i; //  _i ←→ _instance 
     //public static event Action<bool> OnRiddleStateChanged;
@@ -109,7 +110,6 @@ public class Riddle : MonoBehaviour
     public IEnumerator CheckingAnswer()
     {
         if (inputField.text != "")
-        {
             if (inputField.text == riddle[_selectedLevelIndex].GetAnswere())
             {
                 if (_userData.LastUnlockedLevel == _selectedLevelIndex)
@@ -123,17 +123,18 @@ public class Riddle : MonoBehaviour
                     GameManager.I.SaveGame(_userData);
                 }
 
+                isAnswerCorrect = true;
+                ClearInputField();
                 StartCoroutine(NextLevel());
             }
             else
             {
                 reactToAnswerTex.text = "Think more ...!";
+                isAnswerCorrect = false;
+                ClearInputField();
                 yield return new WaitForSeconds(0.7f);
                 reactToAnswerTex.text = "";
             }
-            ClearInputField();
-        }
-            
     }
 
     private IEnumerator NextLevel()

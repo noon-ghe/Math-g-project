@@ -6,9 +6,28 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]private AudioClip clickSound;
+    [SerializeField]private AudioClip normalClickSound;
+    [SerializeField]private AudioClip wrongAnswerSound;
+    [SerializeField]private AudioClip correctAnswerSound;
+    [SerializeField]private AudioClip backButtonSound;
+
     
-    
+    public AudioClip NormalClickSound
+    {
+        get { return normalClickSound; }
+    }
+    public AudioClip WrongAnswerSound
+    {
+        get { return wrongAnswerSound; }
+    }
+    public AudioClip CorrectAnswerSound
+    {
+        get { return correctAnswerSound; }
+    }
+    public AudioClip BackButtonSound
+    {
+        get { return backButtonSound; }
+    }
     static SoundManager _i; //  _i ←→ _instance 
 
     public static SoundManager I
@@ -41,8 +60,8 @@ public class SoundManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject); //it's ok... i'm first <SoundManager>() now.
     }
 
-    public void PlayClickSound()
+    public void PlayClickSound(AudioClip audioClip)
     {
-        GetComponent<AudioSource>().PlayOneShot(clickSound);
+        GetComponent<AudioSource>().PlayOneShot(audioClip);
     }
 }   

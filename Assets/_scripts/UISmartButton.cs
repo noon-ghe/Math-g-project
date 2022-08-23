@@ -55,7 +55,7 @@ public class UISmartButton : MonoBehaviour
 
     async void MyButtonClicked()
     {
-        SoundManager.I.PlayClickSound();
+        
         switch (state)
         {
             case ButtonState.None:
@@ -65,6 +65,7 @@ public class UISmartButton : MonoBehaviour
                 Riddle.I.UpdateUserAnswer(GetComponentInChildren<TextMeshProUGUI>().text);
                 break;
             case ButtonState.Enter:
+                //sound will play in other scripts
                 Riddle.I.CheckAnswer();
                 break;
             case ButtonState.Clear:
