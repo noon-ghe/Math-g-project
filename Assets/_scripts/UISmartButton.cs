@@ -56,58 +56,66 @@ public class UISmartButton : MonoBehaviour
     async void MyButtonClicked()
     {
         AudioClip audioClipToPlay;
-        audioClipToPlay = SoundManager.I.NormalClickSound;
+
         switch (state)
         {
-            case ButtonState.None:
-                print("none option");
-                break;
-            case ButtonState.KeyboardNumber:
-                Riddle.I.UpdateUserAnswer(GetComponentInChildren<TextMeshProUGUI>().text);
-                break;
             case ButtonState.Enter:
                 audioClipToPlay = Riddle.I.CheckAnswer()
                     ? SoundManager.I.CorrectAnswerSound
                     : SoundManager.I.WrongAnswerSound;
-                break;
-            case ButtonState.Clear:
-                Riddle.I.ClearInputField();
-                break;
-            case ButtonState.LevelSelector:
-                Riddle.I.SelectLevel(int.Parse(GetComponentInChildren<TextMeshProUGUI>().text) - 1);
+                SoundManager.I.PlayClickSound(audioClipToPlay);
                 break;
             case ButtonState.Back:
                 audioClipToPlay = SoundManager.I.BackButtonSound;
+                SoundManager.I.PlayClickSound(audioClipToPlay);
                 GameManager.I.Back();
                 break;
-            case ButtonState.StartGame:
-                GameManager.I.UpdateGameState(GameStates.Game);
-                break;
-            case ButtonState.DisplayLevels:
-                GameManager.I.UpdateGameState(GameStates.Levels);
-                break;
-            case ButtonState.Setting:
-                GameManager.I.UpdateGameState(GameStates.Setting);
-                break;
-            case ButtonState.Share:
-                Debug.Log("sharing");
-                break;
-            case ButtonState.Home:
-                GameManager.I.UpdateGameState(GameStates.Home);
-                break;
-            case ButtonState.Exit:
-                //Application.Quit();
-                print("Quit");
-                break;
-            case ButtonState.SelectLevel:
-                GameManager.I.UpdateGameState(GameStates.Game);
-                await Task.Delay(
-                    TimeSpan.FromSeconds(Transition.I
-                        .GetHalfOfTransitionTime())); //for sure that gamestate updated and Riddle are active
-                Riddle.I.SelectLevel(int.Parse(GetComponentInChildren<TextMeshProUGUI>().text) - 1);
+            default:
+                audioClipToPlay = SoundManager.I.NormalClickSound;
+                SoundManager.I.PlayClickSound(audioClipToPlay);
+                switch (state)
+                {
+                    case ButtonState.None:
+                        print("none option");
+                        break;
+                    case ButtonState.LevelSelector:
+                        Riddle.I.SelectLevel(int.Parse(GetComponentInChildren<TextMeshProUGUI>().text) - 1);
+                        break;
+                    case ButtonState.KeyboardNumber:
+                        Riddle.I.UpdateUserAnswer(GetComponentInChildren<TextMeshProUGUI>().text);
+                        break;
+                    case ButtonState.Clear:
+                        Riddle.I.ClearInputField();
+                        break;
+                    case ButtonState.StartGame:
+                        GameManager.I.UpdateGameState(GameStates.Game);
+                        break;
+                    case ButtonState.DisplayLevels:
+                        GameManager.I.UpdateGameState(GameStates.Levels);
+                        break;
+                    case ButtonState.Setting:
+                        GameManager.I.UpdateGameState(GameStates.Setting);
+                        break;
+                    case ButtonState.Share:
+                        Debug.Log("sharing");
+                        break;
+                    case ButtonState.Home:
+                        GameManager.I.UpdateGameState(GameStates.Home);
+                        break;
+                    case ButtonState.Exit:
+                        //Application.Quit();
+                        print("Quit");
+                        break;
+                    case ButtonState.SelectLevel:
+                        GameManager.I.UpdateGameState(GameStates.Game);
+                        await Task.Delay(
+                            TimeSpan.FromSeconds(Transition.I
+                                .GetHalfOfTransitionTime())); //for sure that gamestate updated and Riddle are active
+                        Riddle.I.SelectLevel(int.Parse(GetComponentInChildren<TextMeshProUGUI>().text) - 1);
+                        break;
+                }
                 break;
         }
-        SoundManager.I.PlayClickSound(audioClipToPlay);
     }
 
     public void SetButtonState(bool bstate)
