@@ -102,9 +102,10 @@ public class Riddle : MonoBehaviour
         //OnRiddleStateChanged?.Invoke(true);
     }
 
-    public void CheckAnswer()
+    public bool CheckAnswer()
     {
         StartCoroutine(CheckingAnswer());
+        return isAnswerCorrect;
     }
 
     public IEnumerator CheckingAnswer()

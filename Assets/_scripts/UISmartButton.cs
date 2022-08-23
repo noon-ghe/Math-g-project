@@ -18,12 +18,12 @@ enum ButtonState
     SelectLevel,
     Setting,
     DisplayLevels,
-    
+
     Share,
     Home,
     Exit,
     None
-    
+
     //...
 }
 
@@ -55,7 +55,8 @@ public class UISmartButton : MonoBehaviour
 
     async void MyButtonClicked()
     {
-        
+        AudioClip audioClipToPlay;
+        audioClipToPlay = SoundManager.I.NormalClickSound;
         switch (state)
         {
             case ButtonState.None:
@@ -65,8 +66,9 @@ public class UISmartButton : MonoBehaviour
                 Riddle.I.UpdateUserAnswer(GetComponentInChildren<TextMeshProUGUI>().text);
                 break;
             case ButtonState.Enter:
-                //sound will play in other scripts
-                Riddle.I.CheckAnswer();
+                audioClipToPlay = Riddle.I.CheckAnswer()
+                    ? SoundManager.I.CorrectAnswerSound
+                    : SoundManager.I.WrongAnswerSound;
                 break;
             case ButtonState.Clear:
                 Riddle.I.ClearInputField();
@@ -75,6 +77,7 @@ public class UISmartButton : MonoBehaviour
                 Riddle.I.SelectLevel(int.Parse(GetComponentInChildren<TextMeshProUGUI>().text) - 1);
                 break;
             case ButtonState.Back:
+                audioClipToPlay = SoundManager.I.BackButtonSound;
                 GameManager.I.Back();
                 break;
             case ButtonState.StartGame:
@@ -104,6 +107,7 @@ public class UISmartButton : MonoBehaviour
                 Riddle.I.SelectLevel(int.Parse(GetComponentInChildren<TextMeshProUGUI>().text) - 1);
                 break;
         }
+        SoundManager.I.PlayClickSound(audioClipToPlay);
     }
 
     public void SetButtonState(bool bstate)
@@ -112,6 +116,5 @@ public class UISmartButton : MonoBehaviour
         {
             //GetComponent<Button>().interactable = bstate;
         }
-
     }
 }
