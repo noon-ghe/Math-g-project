@@ -39,7 +39,7 @@ public class UISmartButton : MonoBehaviour
 
     private void OnEnable()
     {
-        Transition.OnTransition += SetButtonState;
+        //Transition.OnTransition += SetButtonState;
         if (state == ButtonState.KeyboardNumber)
         {
             GetComponent<Button>().interactable = true;
@@ -70,11 +70,11 @@ public class UISmartButton : MonoBehaviour
                 SoundManager.I.PlayClickSound(audioClipToPlay);
                 switch (state)
                 {
-                    case ButtonState.Back:
-                        GameManager.I.Back();
-                        break;
                     case ButtonState.None:
                         print("none option");
+                        break;
+                    case ButtonState.Back:
+                        GameManager.I.Back();
                         break;
                     case ButtonState.LevelSelector:
                         Riddle.I.SelectLevel(int.Parse(GetComponentInChildren<TextMeshProUGUI>().text) - 1);
@@ -116,11 +116,11 @@ public class UISmartButton : MonoBehaviour
         }
     }
 
-    public void SetButtonState(bool bstate)
+    /*public void SetButtonState(bool bstate)
     {
         if (state != ButtonState.LevelSelector)
         {
             //GetComponent<Button>().interactable = bstate;
         }
-    }
+    }*/
 }

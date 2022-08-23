@@ -9,7 +9,10 @@ public class Transition : MonoBehaviour
     private bool isFadeTime = false;
     static Transition _i; //  _i ←→ _instance 
     private CanvasGroup canvasGroup;
-    public static Action<bool> OnTransition;
+
+    [SerializeField] private float transitionTime = 0.8f;
+
+    //public static Action<bool> OnTransition;
     private float _timer = 0;
     private bool fadeDir;
 
@@ -64,20 +67,19 @@ public class Transition : MonoBehaviour
 
     public float GetHalfOfTransitionTime()
     {
-        return 0.4f;
+        return transitionTime / 2;
     }
 
     private void Update()
     {
         if (isFadeTime)
         {
-            OnTransition?.Invoke(false);
+            //OnTransition?.Invoke(false);
             if (_timer > GetHalfOfTransitionTime() || _timer < 0)
             {
                 isFadeTime = false;
                 canvasGroup.interactable = canvasGroup.blocksRaycasts = false;
-                OnTransition?.Invoke(true);
-               
+                //OnTransition?.Invoke(true);
             }
             else
             {
