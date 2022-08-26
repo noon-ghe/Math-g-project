@@ -6,23 +6,28 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField]private AudioClip normalClickSound;
-    [SerializeField]private AudioClip wrongAnswerSound;
-    [SerializeField]private AudioClip correctAnswerSound;
+    [SerializeField] private AudioClip normalClickSound;
+    [SerializeField] private AudioClip wrongAnswerSound;
+    [SerializeField] private AudioClip correctAnswerSound;
 
-    
+    private UserData _userData;
+
+
     public AudioClip NormalClickSound
     {
         get { return normalClickSound; }
     }
+
     public AudioClip WrongAnswerSound
     {
         get { return wrongAnswerSound; }
     }
+
     public AudioClip CorrectAnswerSound
     {
         get { return correctAnswerSound; }
     }
+
     static SoundManager _i; //  _i ←→ _instance 
 
     public static SoundManager I
@@ -57,6 +62,10 @@ public class SoundManager : MonoBehaviour
 
     public void PlayClickSound(AudioClip audioClip)
     {
-        GetComponent<AudioSource>().PlayOneShot(audioClip);
+        _userData = GameManager.I.GetUserData();
+        if (_userData.SoundOnOrOff)
+            GetComponent<AudioSource>().PlayOneShot(audioClip);
+        else
+            print("sound is off");
     }
-}   
+}

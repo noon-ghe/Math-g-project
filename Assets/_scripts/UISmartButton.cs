@@ -34,7 +34,14 @@ public class UISmartButton : MonoBehaviour
 
     void Start()
     {
-        GetComponent<Button>().onClick.AddListener(MyButtonClicked);
+        if (GetComponent<Button>())
+        {
+            GetComponent<Button>().onClick.AddListener(MyButtonClicked);
+        }
+        else if (GetComponent<Toggle>())
+        {
+            GetComponent<Toggle>().onValueChanged.AddListener(MyToggleClicked);
+        }
     }
 
     private void OnEnable()
@@ -52,6 +59,12 @@ public class UISmartButton : MonoBehaviour
         //Riddle.OnRiddleStateChanged -= SetButtonState;
     }
 
+    void MyToggleClicked(bool isOn)
+    {
+        UserData uData = GameManager.I.GetUserData();
+        uData.SoundOnOrOff = isOn;
+        GameManager.I.SaveGame(uData);
+    }
 
     async void MyButtonClicked()
     {
@@ -112,6 +125,7 @@ public class UISmartButton : MonoBehaviour
                         Riddle.I.SelectLevel(int.Parse(GetComponentInChildren<TextMeshProUGUI>().text) - 1);
                         break;
                 }
+
                 break;
         }
     }
