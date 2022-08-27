@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using UnityEngine.UI;
 
 public enum GameStates
 {
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour
     {
         print("History deleted!");
         _history.Clear();
+        _history.Add(GameStates.Home);
     }
 
     private void HandleWin(GameStates newState)
@@ -180,6 +182,20 @@ public class GameManager : MonoBehaviour
     public UserData GetUserData()
     {
         return _userData;
+    }
+
+    public void RestLevels()
+    {
+        _userData.LastUnlockedLevel = 0;
+        SaveGame(_userData);
+    }
+
+    public void ResetSetting()
+    {
+        _userData.SoundOnOrOff = true;
+        _userData.SelectedTheme = 1;
+        SaveGame(_userData);
+        //_userData.Volume = defaultNumber;
     }
 }
 

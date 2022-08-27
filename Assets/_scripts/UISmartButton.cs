@@ -22,7 +22,9 @@ enum ButtonState
     Share,
     Home,
     Exit,
-    None
+    None,
+    ResetLevels,
+    ResetSetting
 
     //...
 }
@@ -51,6 +53,12 @@ public class UISmartButton : MonoBehaviour
         {
             GetComponent<Button>().interactable = true;
         }
+
+        if (GetComponent<Toggle>())
+        {
+            GameManager.I.LoadGame(_userData);
+            GetComponent<Toggle>().isOn = GameManager.I.LoadGame(_userData).SoundOnOrOff;
+        }
         //Riddle.OnRiddleStateChanged += SetButtonState;
     }
 
@@ -69,7 +77,6 @@ public class UISmartButton : MonoBehaviour
     async void MyButtonClicked()
     {
         AudioClip audioClipToPlay;
-
         switch (state)
         {
             case ButtonState.Enter:
@@ -116,6 +123,14 @@ public class UISmartButton : MonoBehaviour
                     case ButtonState.Exit:
                         //Application.Quit();
                         print("Quit");
+                        break;
+                    case ButtonState.ResetLevels:
+                        GameManager.I.RestLevels();
+                        GameManager.I.UpdateGameState(GameStates.Home);
+                        break;
+                    case ButtonState.ResetSetting:
+                        GameManager.I.ResetSetting();
+                        GameManager.I.UpdateGameState(GameStates.Home);
                         break;
                     case ButtonState.SelectLevel:
                         GameManager.I.UpdateGameState(GameStates.Game);
